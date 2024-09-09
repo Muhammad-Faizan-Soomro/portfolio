@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="h-fit overflow-x-hidden">
+    <section id="home" class="w-screen h-fit">
+        <div class="flex justify-between">
+            <h1 class="text-black lg:text-4xl text-3xl lg:mt-10 mt-6 lg:ml-10 ml-6 font-bold">PORTFOLIO</h1>
+            <button id="nav-button" class="font-extrabold text-2xl mt-[1.625rem] mr-6 sm:mr-10 lg:hidden"><i
+                    class="ri-menu-line"></i></button>
+            <nav id="mobile-nav"
+                class="lg:hidden w-screen h-screen bg-[rgba(0,0,0,0.8)] backdrop-blur flex flex-col absolute hidden">
+                <div class="flex justify-between ml-6 mr-6 mt-8 md:mr-14 md:ml-14 md:mt-12">
+                    <i
+                        class="text-white ri-moon-fill text-3xl cursor-pointer hover:scale-110 active:scale-95 h-fit text-white translate-y-1"></i>
+
+                    <button id="close-nav" class="text-white text-4xl cursor-pointer hover:scale-110 active:scale-95"><i
+                            class="ri-close-circle-fill"></i></button>
+                </div>
+                <div class="flex translate-y-28 justify-center gap-x-3">
+                    <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
+                        class="text-white h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                            class="ri-github-fill"></i></a><span class="font-bold text-white">|</span>
+                    <a href="https://www.linkedin.com/in/faizansoomro/" target="_blank"
+                        class="text-white h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                            class="ri-linkedin-box-fill"></i></a><span class="font-bold text-white">|</span>
+                    <a href="mailto:mfaizansoomro00@gmail.com" target="_blank"
+                        class="text-white h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                            class="ri-mail-fill "></i></a>
+                </div>
+                <div class="flex flex-col gap-y-7 translate-y-48 ml-16 sm:ml-28 md:ml-52">
+                    <a href="#home" onclick="closeNavber()"
+                        class="text-white text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
+                    <a href="#about" onclick="closeNavber()"
+                        class="text-white text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">About</a>
+                    <a href="#work" onclick="closeNavber()"
+                        class="text-white text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Work</a>
+                    <a href="#contact" onclick="closeNavber()"
+                        class="text-white text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
+                </div>
+            </nav>
+            <nav
+                class="bg-[rgba(0,0,0,0.7)] h-20 w-[50%] fixed left-[25%] rounded-full top-5 lg:flex items-center justify-around backdrop-blur z-40 hidden">
+                <a href="#home"
+                    class="text-black bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
+                <a href="#about"
+                    class="text-black bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">About</a>
+                <a href="#work"
+                    class="text-black bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Work</a>
+                <a href="#contact"
+                    class="text-black bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
+            </nav>
+            <div class="mt-11 lg:flex gap-5 mr-10 hidden">
+                <i class="ri-moon-fill text-2xl cursor-pointer hover:scale-110 active:scale-95 h-fit"></i><span
+                    class="font-medium">|</span>
+                <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
+                    class="h-fit text-2xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                        class="ri-github-fill"></i></a><span class="font-medium">|</span>
+                <a href="https://www.linkedin.com/in/faizansoomro/" target="_blank"
+                    class="h-fit text-2xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                        class="ri-linkedin-box-fill"></i></a><span class="font-medium">|</span>
+                <a href="mailto:mfaizansoomro00@gmail.com" target="_blank"
+                    class="h-fit text-2xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                        class="ri-mail-fill "></i></a>
+            </div>
+        </div>
+        <div class="md:flex md:w-[90%] md:h-[70%] w-[100%] h-fit md:mt-8  md:ml-14 lg:ml-20 lg:mt-20 md:gap-4 mt-10">
+            <div id="imageDiv"
+                class="md:h-[100%] md:w-[45vw] md:max-w-96 w-[85%] relative z-[-1] md:static left-[7.5%] lg:w-[50%] lg:max-w-[50%]">
+                <img class="border-4 border-black rounded-xl shadow-2xl lg:shadow-black shadow-gray-500"
+                    src="./assets/picture.jpg" />
+            </div>
+            <div class="h-[100%] md:w-[50%] md:ml-12 md:mt-6 mt-8 md:gap-y-5 flex flex-col gap-y-3">
+                <h2 class="text-2xl font-medium md:block hidden">Hi,</h2>
+                <h2 class="text-2xl font-semibold ml-5 md:hidden">I'm,</h2>
+                <h2 class="text-2xl font-semibold text-center mx-3 md:hidden">Muhammad Faizan Soomro</h2>
+                <h2 class="text-4xl md:text-3xl font-semibold hidden md:block">I'm <span
+                        class="underline underline-offset-4">Muhammad Faizan
+                        Soomro</span></h2>
+                <h2 class="text-2xl font-medium text-center md:text-left">A Web Developer</h2>
+                <p class="text-lg text-justify lg:leading-8 lg:mx-0 leading-7 mx-6 md:hidden lg:block">a passionate web
+                    developer
+                    with a
+                    knack for creating dynamic
+                    and
+                    responsive web applications. With
+                    expertise in front-end and back-end development, I have successfully built and maintained websites
+                    that provide excellent user experiences. My skill set includes HTML, CSS, JavaScript, React,
+                    Node.js, and various other modern web technologies. I thrive on solving complex problems and am
+                    committed to continuous learning and improvement in the field of web development. Explore my
+                    projects to see how I turn ideas into reality.</p>
+                <button id="downloadBtn"
+                    class="md:hidden lg:block w-[90%] mx-4 lg:mx-0 text-lg border-black border-2 rounded-full lg:w-fit py-2 px-7 hover:scale-105 active:scale-100 font-medium hover:underline hover:underline-offset-2">
+                    <i class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
+                    Download CV
+                </button>
+
+            </div>
+
+        </div>
+        <div class="hidden lg:hidden md:flex flex-col items-end mt-7 gap-y-5">
+            <p class="text-lg text-justify leading-8 mx-12">a passionate web developer with a
+                knack for creating dynamic
+                and
+                responsive web applications. With
+                expertise in front-end and back-end development, I have successfully built and maintained websites
+                that provide excellent user experiences. My skill set includes HTML, CSS, JavaScript, React,
+                Node.js, and various other modern web technologies. I thrive on solving complex problems and am
+                committed to continuous learning and improvement in the field of web development. Explore my
+                projects to see how I turn ideas into reality.</p>
+            <button id="downloadBtn"
+                class="w-[80vw] max-w-96 mx-10 text-lg border-black border-2 rounded-full py-2 px-2 hover:scale-105 active:scale-100 font-medium hover:underline hover:underline-offset-2">
+                <i class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
+                Download CV
+            </button>
+        </div>
+    </section>
+
+    <section id="about" class="w-screen h-fit">
+        <div class="pt-28 hidden lg:block">
+            <h2 class="text-black text-4xl font-bold underline underline-offset-2 text-center">ABOUT ME</h2>
+            <p class="text-lg text-justify leading-9 px-20 pt-5">
+                I'm a versatile web developer with a strong command of frontend and backend technologies. My expertise
+                lies in the MERN stack and NextJS for crafting robust and dynamic web applications. I've hands-on
+                experience with Django, allowing me to build secure and maintainable web
+                applications with Python.
+
+                Being proficient in JavaScript, HTML, and CSS, I'm great at making user interfaces that are dynamic and
+                easy to use. I'm passionate about developing full-stack projects, where I deliver complete solutions by
+                harmoniously integrating frontend and backend components.
+
+                I've worked on numerous projects that have honed my skills and expanded my knowledge
+                in web development. My portfolio showcases a variety of projects, from e-commerce platforms to
+                cryptocurrency price prediction models, demonstrating my ability to tackle diverse challenges. I thrive
+                on solving complex problems and enjoy the challenge of finding creative and efficient solutions.
+                Committed to staying updated with the latest trends and technologies in web development, I am always
+                eager to learn and adapt. I believe in the power of collaboration and enjoy working with
+                cross-functional teams to bring ideas to life. Feel free to explore my portfolio to see my work in
+                action. If you have any questions or would like to discuss a project, don't hesitate to get in touch!
+
+                In addition to my technical abilities, I am a quick learner who excels at taking responsibility. I've
+                developed strong leadership skills. In everything I do, I aim to attain the best outcomes possible.
+
+                I am eager to work on new and challenging projects. I am excited about the opportunities that lie ahead.
+            </p>
+        </div>
+        <div>
+            <h2 class="text-black text-4xl mt-20 lg:mt-10 font-bold underline underline-offset-2 text-center">
+                MY SKILLS</h2>
+            <div class="flex h-[200px] gap-10 mx-20 mt-10 carousel rounded-box hidden lg:flex">
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[200px]" src="./assets/react.webp" alt="reactjs icon" />
+                    <span class="text-center text-lg font-medium">ReactJS</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/nextjs.webp" alt="nextjs icon" />
+                    <span class="text-center text-lg font-medium">NextJS</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/nodejs.webp" alt="nodejs icon" />
+                    <span class="text-center text-lg font-medium">NodeJS</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[120px]" src="./assets/typescript.webp" alt="typescript icon" />
+                    <span class="text-center text-lg font-medium">Typescript</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[120px]" src="./assets/mongodb.webp" alt="mongodb icon" />
+                    <span class="text-center text-lg font-medium">MongoDB</span>
+                </div>
+                <div class="-ml-10 flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[200px]" src="./assets/django.webp" alt="django icon" />
+                    <span class="text-center text-lg font-medium">Django</span>
+                </div>
+                <div class="-ml-6 flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[120px]" src="./assets/redux.webp" alt="redux icon" />
+                    <span class="text-center text-lg font-medium">Redux</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/mysql.webp" alt="mysql icon" />
+                    <span class="text-center text-lg font-medium">MySQL</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/gsap.webp" alt="gsap icon" />
+                    <span class="text-center text-lg font-medium">GSAP</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/javascript.webp" alt="javascript icon" />
+                    <span class="text-center text-lg font-medium">Javascript</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[200px]" src="./assets/tailwindcss.webp" alt="tailwindcss icon" />
+                    <span class="text-center text-lg font-medium">TailwindCSS</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/bootstrap.webp" alt="bootstrap icon" />
+                    <span class="text-center text-lg font-medium">Bootstrap</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/css.webp" alt="css icon" />
+                    <span class="text-center text-lg font-medium">CSS</span>
+                </div>
+                <div class="flex flex-col gap-y-3 carousel-item">
+                    <img class="object-contain h-[150px] w-[150px]" src="./assets/html.webp" alt="html icon" />
+                    <span class="text-center text-lg font-medium">HTML</span>
+                </div>
+            </div>
+            <div class="mt-6 lg:hidden flex flex-col gap-y-2">
+                <h1 class="text-2xl font-semibold ml-6 mb-6 md:ml-24">FRONTEND:</h1>
+                <div class="flex gap-5 justify-evenly">
+                    <div class="flex flex-col gap-y-6">
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/react.webp" alt="reactjs icon" />
+                            <span class="text-lg font-medium ">ReactJS</span>
+                        </div>
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/typescript.webp" alt="typescript icon" />
+                            <span class="text-lg font-medium ">Typescript</span>
+                        </div>
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/redux.webp" alt="redux icon" />
+                            <span class="text-lg font-medium ">Redux</span>
+                        </div>
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/gsap.webp" alt="gsap icon" />
+                            <span class="text-lg font-medium ">GSAP</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-y-6">
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/tailwindcss.webp" alt="tailwindcss icon" />
+                            <span class="text-lg font-medium">TailwindCSS</span>
+                        </div>
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/bootstrap.webp" alt="bootstrap icon" />
+                            <span class="text-lg font-medium">Bootstrap</span>
+                        </div>
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]" src="./assets/css.webp"
+                                alt="CSS icon" />
+                            <span class="text-lg font-medium">CSS</span>
+                        </div>
+                        <div class="flex items-center gap-2 md:gap-5">
+                            <img class="object-contain h-[1.75rem] w-[1.75rem] md:h-[3rem] md:w-[3rem]"
+                                src="./assets/html.webp" alt="HTML icon" />
+                            <span class="text-lg font-medium">HTML</span>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-semibold ml-6 mt-6 mb-4 md:ml-24 md:mt-12">BACKEND:</h1>
+                <div class="flex gap-5 flex-wrap justify-center">
+                    <div class="flex">
+                        <div class="flex items-center mx-6 gap-2">
+                            <img class="object-contain h-[2.rem] w-[2.5rem] md:h-[4rem] md:w-[4rem]" src="./assets/nextjs.webp"
+                                alt="nodejs icon" />
+                            <span class="text-lg font-medium">NodeJS</span>
+                        </div>
+                        <div class="flex items-center mx-7 gap-3">
+                            <img class="object-contain h-[2rem] w-[2rem] md:h-[3.5rem] md:w-[3.5rem]"
+                                src="./assets/nextjs.webp" alt="nextjs icon" />
+                            <span class="text-lg font-medium">NextJS</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center mx-3 -mt-2">
+                        <img class="object-contain h-[4rem] w-[4rem] md:h-[6.5rem] md:w-[6.5rem]" src="./assets/django.webp"
+                            alt="django icon" />
+                        <span class="text-lg font-medium -translate-x-1">Django</span>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-semibold ml-6 mt-6 mb-4 md:ml-24">DATABASE:</h1>
+                <div class="flex gap-5 justify-evenly">
+                    <div class="flex items-center">
+                        <img class="object-contain h-[2.5rem] w-[2.5rem] md:h-[4rem] md:w-[4rem]" src="./assets/mongodb.webp"
+                            alt="mongodb icon" />
+                        <span class="text-lg font-medium">MongoDB</span>
+                    </div>
+                    <div class="flex gap-3 items-center">
+                        <img class="object-contain h-[2.5rem] w-[2.5rem] md:h-[4rem] md:w-[4rem]" src="./assets/mysql.webp"
+                            alt="mysql icon" />
+                        <span class="text-lg font-medium">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="w-fit h-fit">
+        <h2 class="text-black text-4xl lg:mt-32 mt-14 md:mt-20 font-bold underline underline-offset-2 text-center">MY
+            WORK</h2>
+        <div class="flex flex-wrap lg:gap-32 gap-16 md:gap-14 justify-center mt-11">
+            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
+                <div class="absolute">
+                    <h3 class="text-black text-center text-2xl font-bold lg:translate-y-12 translate-y-8">Swole Society
+                    </h3>
+                    <hr
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 translate-y-6">
+                    <p class="px-5 lg:translate-y-1 translate-y-6 text-justify">Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit.
+                        Culpa sunt perspiciatis maiores incidunt sint modi voluptatum ratione quidem! Pariatur,
+                        provident officia. At eius consequatur ipsum unde repudiandae incidunt nesciunt commodi
+                        consequuntur voluptatem minima facere, autem cupiditate accusamus amet.</p>
+                </div>
+                <div
+                    class="absolute w-[100%] h-[100%] bg-black opacity-0 duration-300 rounded-xl hover:opacity-[0.88] flex flex-col justify-center gap-y-4 items-center">
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 border-2 p-2 rounded-lg hover:scale-105 bg-gradient-to-r from-indigo-200 to-yellow-100">Github
+                        <i class="ri-arrow-right-up-line"></i></a>
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 hover:scale-105 border-2 p-2 rounded-lg bg-gradient-to-r from-indigo-200 to-yellow-100">Live
+                        Demo <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+            </div>
+            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
+                <div class="absolute">
+                    <h3 class="text-black text-center text-2xl font-bold translate-y-6">Online Portfolio Generator</h3>
+                    <hr
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 lg:-translate-y-2 translate-y-4">
+                    <p class="px-5 lg:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        Magnam cum nemo architecto labore totam, iure atque similique pariatur aut, asperiores repellat
+                        magni, earum odit debitis facere facilis perspiciatis corrupti reiciendis incidunt mollitia
+                        culpa odio. Saepe assumenda provident fugit doloribus. Ratione.</p>
+                </div>
+                <div
+                    class="absolute w-[100%] h-[100%] bg-black opacity-0 duration-300 rounded-xl hover:opacity-[0.88] flex flex-col justify-center gap-y-4 items-center">
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 border-2 p-2 rounded-lg hover:scale-105 bg-gradient-to-r from-indigo-200 to-yellow-100">Github
+                        <i class="ri-arrow-right-up-line"></i></a>
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 hover:scale-105 border-2 p-2 rounded-lg bg-gradient-to-r from-indigo-200 to-yellow-100">Live
+                        Demo <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+            </div>
+            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
+                <div class="absolute">
+                    <h3 class="text-black text-center text-2xl font-bold translate-y-6">Cryptocurrency Price Prediction
+                    </h3>
+                    <hr
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 lg:-translate-y-2 translate-y-4">
+                    <p class="px-5 lg:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        Quibusdam eius, blanditiis sed aliquid architecto veritatis ratione repudiandae aspernatur ea
+                        iusto similique consequuntur, dolore hic, unde nihil nobis. Laborum cum nisi, laboriosam illo
+                        eius esse doloribus quod atque perferendis sequi distinctio?</p>
+                </div>
+                <div
+                    class="absolute w-[100%] h-[100%] bg-black opacity-0 duration-300 rounded-xl hover:opacity-[0.88] flex flex-col justify-center gap-y-4 items-center">
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 border-2 p-2 rounded-lg hover:scale-105 bg-gradient-to-r from-indigo-200 to-yellow-100">Github
+                        <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+            </div>
+            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
+                <div class="absolute">
+                    <h3 class="text-black text-center text-2xl font-bold lg:translate-y-12 translate-y-8">Task Sage</h3>
+                    <hr
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 translate-y-6">
+                    <p class="px-5 lg:translate-y-1 translate-y-6 text-justify">Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit.
+                        Culpa sunt perspiciatis maiores incidunt sint modi voluptatum ratione quidem! Pariatur,
+                        provident officia. At eius consequatur ipsum unde repudiandae incidunt nesciunt commodi
+                        consequuntur voluptatem minima facere, autem cupiditate accusamus amet.</p>
+                </div>
+                <div
+                    class="absolute w-[100%] h-[100%] bg-black opacity-0 duration-300 rounded-xl hover:opacity-[0.88] flex flex-col justify-center gap-y-4 items-center">
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 border-2 p-2 rounded-lg hover:scale-105 bg-gradient-to-r from-indigo-200 to-yellow-100">Github
+                        <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+            </div>
+            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
+                <div class="absolute">
+                    <h3 class="text-black text-center text-2xl font-bold translate-y-6">Airport Management System</h3>
+                    <hr
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 lg:-translate-y-2 translate-y-4 ">
+                    <p class="px-5 lg:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        Quibusdam eius, blanditiis sed aliquid architecto veritatis ratione repudiandae aspernatur ea
+                        iusto similique consequuntur, dolore hic, unde nihil nobis. Laborum cum nisi, laboriosam illo
+                        eius esse doloribus quod atque perferendis sequi distinctio?</p>
+                </div>
+                <div
+                    class="absolute w-[100%] h-[100%] bg-black opacity-0 duration-300 rounded-xl hover:opacity-[0.88] flex flex-col justify-center gap-y-4 items-center">
+                    <a href=""
+                        class="text-black font-bold text-2xl active:scale-95 border-2 p-2 rounded-lg hover:scale-105 bg-gradient-to-r from-indigo-200 to-yellow-100">Github
+                        <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contact" class="w-[100%] h-fit">
+        <h2 class="text-black text-4xl lg:mt-32 mt-24 font-bold underline underline-offset-2 text-center">
+            CONTACT ME</h2>
+        <div class="flex flex-col md:flex-row md:mt-20 mt-10 lg:mx-20 md:mx-8 md:justify-between">
+            <div class="lg:w-[50%] md:w-[40%] md:ml-5 lg:ml-16 lg:mt-16">
+                <h2 class="lg:text-4xl text-3xl font-bold text-center md:text-left">Let's Work Together!</h2>
+                <p class="leading-7 pt-6 text-lg hidden lg:block">Feel free to reach out if
+                    you're looking for a developer, have a
+                    question,<br>or are interested in
+                    building some super cool stuff together.</p>
+                <p class="leading-6 mx-5 lg:hidden mt-3 text-justify md:text-lg md:mx-0">Feel free to reach out if
+                    you're looking for a developer, have a
+                    question, or are interested in
+                    building some super cool stuff together.</p>
+                <div class="flex pt-6 lg:ml-6 justify-center lg:justify-normal">
+                    <i class="ri-mail-line border-y-2 border-s-2 p-3 border-black rounded-s-md font-medium"></i>
+                    <h3 class="border-2 p-3 border-black rounded-e-md font-medium">mfaizansoomro00@gmail.com</h3>
+                </div>
+                <div class="ml-28 pt-6 gap-10 hidden md:flex md:ml-20">
+                    <a href="https://www.linkedin.com/in/faizansoomro/" target="_blank"
+                        class="text-4xl hover:scale-110 active:scale-95"><i class="ri-linkedin-box-fill"></i></a>
+                    <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
+                        class="text-4xl hover:scale-110 active:scale-95"><i class="ri-github-fill"></i></a>
+                </div>
+            </div>
+            <div class="md:w-[45%] lg:[50%] flex flex-col md:gap-10 gap-7 items-center md:items-start lg:items-center">
+                <div class="flex flex-col items-center md:items-start">
+                    <input type="text" name="" id="" placeholder="Name"
+                        class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 mt-8 mb-7 md:mt-0">
+                    <input type="email" name="" id="" placeholder="Email"
+                        class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2">
+                </div>
+                <textarea name="" id="" placeholder="Message" cols="10" rows="8"
+                    class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 mx-5 md:mx-0 h-fit p-2"></textarea>
+                <a href="mailto:mfaizansoomro00@gmail.com"
+                    class="p-2 bg-black text-white text-center text-xl font-semibold rounded-3xl lg:w-[25rem] lg:max-w-[25rem] w-[75vw] max-w-80 md:max-w-72 mx-7 md:mx-4 hover:scale-110 active:scale-100 mb-4 lg:mb-8">Send</a>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
