@@ -19,13 +19,86 @@
             height: 100vh;
             width: 100%;
         }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            outline: none;
+            color: #FFF;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 12px;
+            opacity: 0;
+        }
+
+        .btn::after {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        /* glow */
+        .btn::before {
+            content: "";
+            background: linear-gradient(45deg,
+                    #FF0000, #FF7300, #FFFB00, #48FF00,
+                    #00FFD5, #002BFF, #FF00C8, #FF0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 600%;
+            z-index: -1;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            filter: blur(8px);
+            animation: glowing 20s linear infinite;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+            opacity: 0;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        /* hover */
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn:active:after {
+            background: transparent;
+        }
+
+        .btn:active {
+            color: #000;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body class="h-fit overflow-x-hidden">
     <section id="home" class="w-screen h-fit">
         <div class="flex justify-between">
-            <h1 class="text-black lg:text-4xl text-3xl lg:mt-10 mt-6 lg:ml-10 ml-6 font-bold">PORTFOLIO</h1>
+            <h1 id="main-heading" class="text-black lg:text-4xl text-3xl lg:mt-10 mt-6 lg:ml-10 ml-6 font-bold">
+                PORTFOLIO</h1>
             <button id="nav-button" class="font-extrabold text-2xl mt-[1.625rem] mr-6 sm:mr-10 lg:hidden"><i
                     class="ri-menu-line"></i></button>
             <nav id="mobile-nav"
@@ -59,7 +132,7 @@
                         class="text-white text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
                 </div>
             </nav>
-            <nav
+            <nav id="navbar"
                 class="bg-[rgba(0,0,0,0.7)] h-20 w-[50%] fixed left-[25%] rounded-full top-5 lg:flex items-center justify-around backdrop-blur z-40 hidden">
                 <a href="#home"
                     class="text-black bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
@@ -70,7 +143,7 @@
                 <a href="#contact"
                     class="text-black bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
             </nav>
-            <div class="mt-11 lg:flex gap-5 mr-10 hidden">
+            <div class="mt-11 lg:flex gap-5 mr-10 hidden" id="socials">
                 <i class="ri-moon-fill text-2xl cursor-pointer hover:scale-110 active:scale-95 h-fit"></i><span
                     class="font-medium">|</span>
                 <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
@@ -87,13 +160,13 @@
         <div class="md:flex md:w-[90%] md:h-[70%] w-[100%] h-fit md:mt-8  md:ml-14 lg:ml-20 lg:mt-20 md:gap-4 mt-10">
             <div id="imageDiv"
                 class="md:h-[100%] md:w-[45vw] md:max-w-96 w-[85%] relative z-[-1] md:static left-[7.5%] lg:w-[50%] lg:max-w-[50%]">
-                <img class="border-4 border-black rounded-xl shadow-2xl lg:shadow-black shadow-gray-500"
+                <img id="image" class="border-4 border-black rounded-xl shadow-2xl lg:shadow-black shadow-gray-500"
                     src="./assets/picture.jpg" />
             </div>
-            <div class="h-[100%] md:w-[50%] md:ml-12 md:mt-6 mt-8 md:gap-y-5 flex flex-col gap-y-3">
-                <h2 class="text-2xl font-medium md:block hidden">Hi,</h2>
+            <div class="h-[100%] md:w-[50%] md:ml-12 md:mt-6 mt-8 md:gap-y-5 flex flex-col gap-y-3" id="landing-page">
                 <h2 class="text-2xl font-semibold ml-5 md:hidden">I'm,</h2>
                 <h2 class="text-2xl font-semibold text-center mx-3 md:hidden">Muhammad Faizan Soomro</h2>
+                <h2 class="text-2xl font-medium md:block hidden">Hi,</h2>
                 <h2 class="text-4xl md:text-3xl font-semibold hidden md:block">I'm <span
                         class="underline underline-offset-4">Muhammad Faizan
                         Soomro</span></h2>
@@ -109,11 +182,14 @@
                     Node.js, and various other modern web technologies. I thrive on solving complex problems and am
                     committed to continuous learning and improvement in the field of web development. Explore my
                     projects to see how I turn ideas into reality.</p>
-                <button id="downloadBtn"
+                <!-- <button
                     class="md:hidden lg:block w-[90%] mx-4 lg:mx-0 text-lg border-black border-2 rounded-full lg:w-fit py-2 px-7 hover:scale-105 active:scale-100 font-medium hover:underline hover:underline-offset-2">
                     <i class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
                     Download CV
-                </button>
+                </button> -->
+                <button class="btn md:hidden lg:block font-medium mt-4" id="downloadBtn"> <i
+                        class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
+                    Download CV</button>
 
             </div>
 
