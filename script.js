@@ -18,6 +18,7 @@ navbarButton.addEventListener("click", openNavber);
 navbarCloseBtn.addEventListener("click", closeNavber);
 
 const tl = gsap.timeline();
+const workTL = gsap.timeline();
 
 gsap.from("#main-heading", {
   opacity: 0,
@@ -39,7 +40,7 @@ gsap.from("#image", {
   filter: "grayscale(100%)",
   duration: 1,
   delay: 1,
-  scale: 0.1,
+  scale: 0,
 });
 
 gsap.from("#navbar a", {
@@ -72,12 +73,156 @@ tl.to("#downloadBtn", {
   y: -17,
 });
 
-// gsap.from("#downloadBtn",{
-//   opacity:0,
-//   delay:3.5,
-//   duration:0.8,
-//   y:30
-// })
+gsap.to("#skills", {
+  transform: "translateX(-80%)",
+  scrollTrigger: {
+    trigger: "#skill-animation",
+    scroller: "body",
+    start: "top 0%",
+    end: "top -30%",
+    scrub: 5,
+  },
+});
+
+gsap.from("#about h2", {
+  opacity: 0,
+  y: 30,
+  scale: 0.1,
+  scrollTrigger: {
+    trigger: "#about",
+    scroller: "body",
+    start: "top 75%",
+    end: "top 35%",
+    scrub: true,
+  },
+});
+
+gsap.from("#about-me span", {
+  opacity: 0,
+  scale: 0.1,
+  stagger: 0.1,
+  scrollTrigger: {
+    trigger: "#about-me",
+    scroller: "body",
+    start: "top 75%",
+    end: "top 35%",
+    scrub: true,
+  },
+});
+
+gsap.from("#work h2", {
+  opacity: 0,
+  y: 30,
+  scale: 0.1,
+  scrollTrigger: {
+    trigger: "#work h2",
+    scroller: "body",
+    start: "top 60%",
+    end: "top 40%",
+    scrub: true,
+  },
+});
+
+gsap.from("#main-work > div", {
+  opacity: 0,
+  y: 30,
+  scale: 0.1,
+  transform: "skewY(80deg)",
+  stagger: 0.5,
+  scrollTrigger: {
+    trigger: "#main-work",
+    scroller: "body",
+    start: "top 60%",
+    end: "top -10%",
+    scrub: true,
+  },
+});
+
+gsap.from("#contact > h2", {
+  opacity: 0,
+  y: 30,
+  scale: 0.1,
+  scrollTrigger: {
+    trigger: "#contact h2",
+    scroller: "body",
+    start: "top 75%",
+    end: "top 60%",
+    scrub: true,
+  },
+});
+
+workTL.from(
+  "#left-contact h2",
+  {
+    scrollTrigger: {
+      trigger: "#left-contact",
+      scroller: "body",
+      start: "top 85%",
+      end: "top 70%",
+      scrub: true,
+    },
+    opacity: 0,
+    x: -500,
+    scale: 0.1,
+  },
+  "same"
+);
+
+workTL.from(
+  "#left-contact p",
+  {
+    scrollTrigger: {
+      trigger: "#left-contact",
+      scroller: "body",
+      start: "top 85%",
+      end: "top 70%",
+      scrub: true,
+    },
+    opacity: 0,
+    x: 500,
+    scale: 0.1,
+  },
+  "same"
+);
+
+gsap.from("#left-contact div", {
+  scrollTrigger: {
+    trigger: "#left-contact",
+    scroller: "body",
+    start: "top 70%",
+    end: "top 60%",
+    scrub: true,
+  },
+  opacity: 0,
+  y: 500,
+  scale: 0.1,
+});
+
+gsap.from("#right-contact input, #right-contact textarea", {
+  scrollTrigger: {
+    trigger: "#right-contact",
+    scroller: "body",
+    start: "top 70%",
+    end: "top 50%",
+    scrub: true,
+  },
+  opacity: 0,
+  y: 500,
+  scale: 0.1,
+  stagger: 0.8,
+});
+
+gsap.to("#sendBtn", {
+  opacity: 1,
+  y: -30,
+  scrollTrigger: {
+    trigger: "#right-contact",
+    scroller: "body",
+    start: "top 50%",
+    end: "top 31%",
+    scrub: true,
+  },
+});
 
 for (let i = 0; i < tag.length; i++) {
   tag[i].addEventListener("mouseenter", () => {
@@ -92,5 +237,3 @@ for (let i = 0; i < tag.length; i++) {
     gsap.from(tag[i], { scale: 0.6, duration: 0.3 });
   });
 }
-
-
