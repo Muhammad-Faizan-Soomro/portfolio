@@ -22,13 +22,18 @@ navbarButton.addEventListener("click", openNavber);
 navbarCloseBtn.addEventListener("click", closeNavber);
 
 mm.add("(min-width: 1024px)", () => {
-  gsap.from("#image", {
+  // gsap.from("#image", {
+  //   opacity: 0,
+  //   rotate: 360,
+  //   filter: "grayscale(100%)",
+  //   duration: 1,
+  //   delay: 1,
+  //   scale: 0,
+  // });
+
+  gsap.from("#imageDiv", {
     opacity: 0,
-    rotate: 360,
-    filter: "grayscale(100%)",
-    duration: 1,
     delay: 1,
-    scale: 0,
   });
 
   // return () => { // optional
@@ -58,7 +63,6 @@ mm.add("(min-width: 1024px)", () => {
     stagger: 0.3,
     y: -30,
     scale: 0.8,
-
   });
 
   tl.from("#landing-page h2,#landing-page p", {
@@ -67,7 +71,6 @@ mm.add("(min-width: 1024px)", () => {
     stagger: 0.25,
     y: 30,
     delay: 1.4,
-
   });
 
   gsap.from("#socials", {
@@ -93,7 +96,6 @@ mm.add("(min-width: 1024px)", () => {
       end: "top -30%",
       scrub: 5,
     },
-    
   });
 
   gsap.from("#about h2", {
@@ -135,17 +137,13 @@ mm.add("(min-width: 1024px)", () => {
     },
   });
 
-  gsap.from("#main-work > div", {
+  gsap.from(".project", {
     opacity: 0,
-    y: 30,
-    scale: 0.1,
-    transform: "skewY(80deg)",
-    stagger: 0.5,
     scrollTrigger: {
       trigger: "#main-work",
       scroller: "body",
       start: "top 60%",
-      end: "top -10%",
+      end: "top 60%",
       scrub: true,
     },
   });

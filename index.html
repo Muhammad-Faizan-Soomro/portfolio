@@ -91,6 +91,196 @@
             color: #000;
             font-weight: bold;
         }
+
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @property --a {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @media only screen and (min-width: 1024px) {
+
+            #imageDiv::after,
+            #imageDiv::before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-image: conic-gradient(#ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                z-index: -1;
+                padding: 3px;
+                border-radius: 12px;
+            }
+
+
+            #imageDiv::before {
+                filter: blur(1.5rem);
+            }
+        }
+
+        .downloadCV {
+            position: relative;
+            text-decoration: none;
+            padding: 15px 20px;
+            background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+            animation: animate 2s linear infinite;
+        }
+
+        .downloadCV::before {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%, #45f3ff 50%);
+            animation: animate 2s linear infinite;
+            animation-delay: -0.5s;
+            transition: 0.5;
+            opacity: 0;
+
+        }
+
+        .downloadCV:hover::before {
+            opacity: 1;
+        }
+
+        .downloadCV::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #191919;
+        }
+
+        .downloadCV span {
+            position: relative;
+            font-size: 1em;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #fff;
+            transition: 0.5s;
+        }
+
+        .downloadCV:hover span {
+            letter-spacing: 0.35em;
+            color: #45f3ff
+        }
+
+        @keyframes animate {
+            0% {
+                --a: 0deg;
+            }
+
+            100% {
+                --a: 360deg;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .project::after,
+        .project::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            z-index: -1;
+            padding: 3px;
+            border-radius: 12px;
+            animation: 3s spin linear infinite;
+        }
+
+
+        .project::before {
+            filter: blur(1.5rem);
+        }
+
+        @keyframes spin {
+            from {
+                --angle: 0deg;
+            }
+
+            to {
+                --angle: 360deg;
+            }
+        }
+
+        .ball {
+            animation: bounce 1s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                transform: translate3d(0, 25px, 0);
+            }
+        }
+
+        /* Prefix Support */
+
+        ball {
+            -webkit-animation-name: bounce;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        @-webkit-keyframes bounce {
+            from {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 200px, 0);
+                transform: translate3d(0, 200px, 0);
+            }
+        }
+
+        .input:focus,
+        .input:valid {
+            color: black;
+            border: 2px solid black;
+        }
+
+        .input:focus+.labelline,
+        .input:valid+.labelline {
+            color: black;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 12px;
+            transform: translate(-15px, -16px) scale(0.88);
+            z-index: 1111;
+        }
     </style>
 </head>
 
@@ -102,7 +292,7 @@
             <button id="nav-button" class="font-extrabold text-2xl mt-[1.625rem] mr-6 sm:mr-10 lg:hidden"><i
                     class="ri-menu-line"></i></button>
             <nav id="mobile-nav"
-                class="lg:hidden w-screen h-screen bg-[rgba(0,0,0,0.8)] backdrop-blur flex flex-col absolute hidden">
+                class="lg:hidden w-screen h-screen bg-[rgba(0,0,0,0.8)] backdrop-blur flex flex-col absolute hidden z-[2]">
                 <div class="flex justify-between ml-6 mr-6 mt-8 md:mr-14 md:ml-14 md:mt-12">
                     <i
                         class="text-white ri-moon-fill text-3xl cursor-pointer hover:scale-110 active:scale-95 h-fit text-white translate-y-1"></i>
@@ -159,9 +349,8 @@
         </div>
         <div class="md:flex md:w-[90%] md:h-[70%] w-[100%] h-fit md:mt-8  md:ml-14 lg:ml-20 lg:mt-20 md:gap-4 mt-10">
             <div id="imageDiv"
-                class="md:h-[100%] md:w-[45vw] md:max-w-96 w-[85%] relative z-[-1] md:static left-[7.5%] lg:w-[50%] lg:max-w-[50%]">
-                <img id="image" class="border-4 border-black rounded-xl shadow-2xl lg:shadow-black shadow-gray-500"
-                    src="./assets/picture.jpg" />
+                class="md:h-[100%] md:w-[45vw] md:max-w-96 w-[85%] relative z-[-1] lg:z-0 left-[7.5%] md:left-0 lg:w-[50%] lg:max-w-[50%]">
+                <img id="image" class="border-4 border-black rounded-xl shadow-gray-500" src="./assets/picture.jpg" />
             </div>
             <div class="h-[100%] md:w-[50%] md:ml-12 md:mt-6 mt-8 md:gap-y-5 flex flex-col gap-y-3" id="landing-page">
                 <h2 class="text-2xl font-semibold ml-5 md:hidden">I'm,</h2>
@@ -182,10 +371,9 @@
                     Node.js, and various other modern web technologies. I thrive on solving complex problems and am
                     committed to continuous learning and improvement in the field of web development. Explore my
                     projects to see how I turn ideas into reality.</p>
-                <button
-                    class="md:hidden w-[90%] mx-4 text-lg border-black border-2 rounded-full py-2 px-7 hover:scale-105 active:scale-100 font-medium hover:underline hover:underline-offset-2">
-                    <i class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
-                    Download CV
+                <button id="downloadCV" class="downloadCV md:hidden w-[90%] mx-4 border-black border-2">
+                    <span>
+                        Download CV</span>
                 </button>
                 <button class="btn lg:block font-medium mt-4 hidden" id="downloadBtn"> <i
                         class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
@@ -204,10 +392,9 @@
                 Node.js, and various other modern web technologies. I thrive on solving complex problems and am
                 committed to continuous learning and improvement in the field of web development. Explore my
                 projects to see how I turn ideas into reality.</p>
-            <button id="downloadBtn"
-                class="w-[80vw] max-w-96 mx-10 text-lg border-black border-2 rounded-full py-2 px-2 hover:scale-105 active:scale-100 font-medium hover:underline hover:underline-offset-2">
-                <i class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
-                Download CV
+            <button id="downloadBtn" class="downloadCV w-[80vw] max-w-96 mx-10 border-black border-2">
+                <span>
+                    Download CV</span>
             </button>
         </div>
     </section>
@@ -408,13 +595,16 @@
         <h2 class="text-black text-4xl lg:pt-10 mt-14 md:mt-20 font-bold underline underline-offset-2 text-center">MY
             WORK</h2>
         <div class="flex flex-wrap lg:gap-32 gap-16 md:gap-14 justify-center mt-11" id="main-work">
-            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
-                <div class="absolute">
-                    <h3 class="text-black text-center text-2xl font-bold lg:translate-y-12 translate-y-8">Swole Society
+            <div
+                class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl project bg-[#1c1f2b]">
+                <div class="absolute text-white">
+                    <h3 class="text-center text-2xl font-bold md:translate-y-12 translate-y-8">Swole
+                        Society
                     </h3>
                     <hr
                         class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 translate-y-6">
-                    <p class="px-5 lg:translate-y-1 translate-y-6 text-justify">Lorem ipsum, dolor sit amet consectetur
+                    <p class="px-5 md:translate-y-1 translate-y-6 text-justify">Lorem ipsum, dolor sit amet
+                        consectetur
                         adipisicing elit.
                         Culpa sunt perspiciatis maiores incidunt sint modi voluptatum ratione quidem! Pariatur,
                         provident officia. At eius consequatur ipsum unde repudiandae incidunt nesciunt commodi
@@ -430,16 +620,18 @@
                         Demo <i class="ri-arrow-right-up-line"></i></a>
                 </div>
             </div>
-            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
-                <div class="absolute">
-                    <h3 class="text-black text-center text-2xl font-bold translate-y-6">Online Portfolio Generator</h3>
+            <div
+                class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl project bg-[#1c1f2b]">
+                <div class="absolute text-white">
+                    <h3 class="text-center text-2xl font-bold translate-y-6 md:mx-3">Online Portfolio Generator
+                    </h3>
                     <hr
-                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 lg:-translate-y-2 translate-y-4">
-                    <p class="px-5 lg:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 md:-translate-y-2 translate-y-4 md:translate-y-0">
+                    <p class="px-5 md:-translate-y-7 translate-y-6  text-justify">Lorem ipsum dolor sit amet consectetur
                         adipisicing elit.
-                        Magnam cum nemo architecto labore totam, iure atque similique pariatur aut, asperiores repellat
-                        magni, earum odit debitis facere facilis perspiciatis corrupti reiciendis incidunt mollitia
-                        culpa odio. Saepe assumenda provident fugit doloribus. Ratione.</p>
+                        Quibusdam eius, blanditiis sed aliquid architecto veritatis ratione repudiandae aspernatur ea
+                        iusto similique consequuntur, dolore hic, unde nihil nobis. Laborum cum nisi, laboriosam illo
+                        eius esse doloribus quod atque perferendis sequi distinctio?</p>
                 </div>
                 <div
                     class="absolute w-[100%] h-[100%] bg-black opacity-0 duration-300 rounded-xl hover:opacity-[0.88] flex flex-col justify-center gap-y-4 items-center">
@@ -451,13 +643,15 @@
                         Demo <i class="ri-arrow-right-up-line"></i></a>
                 </div>
             </div>
-            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
-                <div class="absolute">
-                    <h3 class="text-black text-center text-2xl font-bold translate-y-6">Cryptocurrency Price Prediction
+            <div
+                class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl project bg-[#1c1f2b]">
+                <div class="absolute text-white">
+                    <h3 class="text-center text-2xl font-bold translate-y-6">Cryptocurrency Price Prediction
                     </h3>
                     <hr
-                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 lg:-translate-y-2 translate-y-4">
-                    <p class="px-5 lg:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 md:-translate-y-2 translate-y-4">
+                    <p class="px-5 md:-translate-y-8 translate-y-4 md:-translate-y-2 text-justify">Lorem ipsum dolor sit
+                        amet consectetur
                         adipisicing elit.
                         Quibusdam eius, blanditiis sed aliquid architecto veritatis ratione repudiandae aspernatur ea
                         iusto similique consequuntur, dolore hic, unde nihil nobis. Laborum cum nisi, laboriosam illo
@@ -470,12 +664,13 @@
                         <i class="ri-arrow-right-up-line"></i></a>
                 </div>
             </div>
-            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
-                <div class="absolute">
-                    <h3 class="text-black text-center text-2xl font-bold lg:translate-y-12 translate-y-8">Task Sage</h3>
+            <div
+                class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl project bg-[#1c1f2b]">
+                <div class="absolute text-white">
+                    <h3 class="text-center text-2xl font-bold md:translate-y-12 translate-y-8">Task Sage</h3>
                     <hr
                         class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 translate-y-6">
-                    <p class="px-5 lg:translate-y-1 translate-y-6 text-justify">Lorem ipsum, dolor sit amet consectetur
+                    <p class="px-5 md:translate-y-1 translate-y-6 text-justify">Lorem ipsum, dolor sit amet consectetur
                         adipisicing elit.
                         Culpa sunt perspiciatis maiores incidunt sint modi voluptatum ratione quidem! Pariatur,
                         provident officia. At eius consequatur ipsum unde repudiandae incidunt nesciunt commodi
@@ -488,12 +683,13 @@
                         <i class="ri-arrow-right-up-line"></i></a>
                 </div>
             </div>
-            <div class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl">
-                <div class="absolute">
-                    <h3 class="text-black text-center text-2xl font-bold translate-y-6">Airport Management System</h3>
+            <div
+                class="h-96 w-[90vw] max-w-96 md:max-w-80 relative rounded-xl shadow-black shadow-xl project bg-[#1c1f2b]">
+                <div class="absolute text-white">
+                    <h3 class="text-center text-2xl font-bold translate-y-6">Airport Management System</h3>
                     <hr
-                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 lg:-translate-y-2 translate-y-4 ">
-                    <p class="px-5 lg:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
+                        class="w-48 h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700 md:-translate-y-2 translate-y-4 ">
+                    <p class="px-5 md:-translate-y-8 translate-y-4 text-justify">Lorem ipsum dolor sit amet consectetur
                         adipisicing elit.
                         Quibusdam eius, blanditiis sed aliquid architecto veritatis ratione repudiandae aspernatur ea
                         iusto similique consequuntur, dolore hic, unde nihil nobis. Laborum cum nisi, laboriosam illo
@@ -528,11 +724,12 @@
                     <i class="ri-mail-line border-y-2 border-s-2 p-3 border-black rounded-s-md font-medium"></i>
                     <h3 class="border-2 p-3 border-black rounded-e-md font-medium">mfaizansoomro00@gmail.com</h3>
                 </div>
-                <div class="ml-28 pt-6 gap-10 hidden md:flex md:ml-20">
+                <div class="ml-28 pt-6 gap-10 hidden md:flex md:ml-20 ball">
                     <a href="https://www.linkedin.com/in/faizansoomro/" target="_blank"
                         class="text-4xl hover:scale-110 active:scale-95"><i class="ri-linkedin-box-fill"></i></a>
                     <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
                         class="text-4xl hover:scale-110 active:scale-95"><i class="ri-github-fill"></i></a>
+
                 </div>
             </div>
             <div class="md:w-[45%] lg:[50%] flex flex-col md:gap-10 gap-7 items-center md:items-start lg:items-center"
