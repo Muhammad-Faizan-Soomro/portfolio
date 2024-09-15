@@ -371,11 +371,13 @@
                     Node.js, and various other modern web technologies. I thrive on solving complex problems and am
                     committed to continuous learning and improvement in the field of web development. Explore my
                     projects to see how I turn ideas into reality.</p>
-                <a class="downloadCV md:hidden w-[90%] mx-4 border-black border-2 text-center" download href="Muhammad Faizan Soomro - CV.pdf">
+                <a class="downloadCV md:hidden w-[90%] mx-4 border-black border-2 text-center" download
+                    href="Muhammad Faizan Soomro - CV.pdf">
                     <span>
                         Download CV</span>
                 </a>
-                <a class="btn lg:block font-medium mt-4 hidden" id="downloadBtn" download href="Muhammad Faizan Soomro - CV.pdf"> <i
+                <a class="btn lg:block font-medium mt-4 hidden" id="downloadBtn" download
+                    href="Muhammad Faizan Soomro - CV.pdf"> <i
                         class="ri-arrow-down-line mr-2 underline underline-offset-2"></i>
                     Download CV</a>
 
@@ -734,18 +736,29 @@
             </div>
             <div class="md:w-[45%] lg:[50%] flex flex-col md:gap-10 gap-7 items-center md:items-start lg:items-center"
                 id="right-contact">
-                <div class="flex flex-col items-center md:items-start">
-                    <input type="text" name="" id="" placeholder="Name"
-                        class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 mt-8 mb-7 md:mt-0">
-                    <input type="email" name="" id="" placeholder="Email"
-                        class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2">
-                </div>
-                <textarea name="" id="" placeholder="Message" cols="10" rows="8"
-                    class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 mx-5 md:mx-0 h-fit p-2"></textarea>
-                <a href="mailto:mfaizansoomro00@gmail.com"
-                    class="p-2 bg-black text-white text-center text-xl font-semibold rounded-3xl lg:hidden w-[75vw] max-w-80 md:max-w-72 mx-7 md:mx-4 hover:scale-110 active:scale-100 mb-4">Send</a>
-                <a class="btn hidden lg:block p-2 text-xl rounded-3xl font-semibold w-[25rem] max-w-[25rem] max-w-80 mx-7 mb-8 mt-8"
-                    href="mailto:mfaizansoomro00@gmail.com" id="sendBtn">Send</a>
+                <form action="https://api.web3forms.com/submit" method="POST" id="form" class="flex flex-col md:gap-10 gap-7 items-center md:items-start lg:items-center">
+                    <input type="hidden" name="access_key" value="e2cb9461-211f-4f45-b7bf-aed8b43682a3">
+                    <div class="flex flex-col items-center md:items-start">
+                        <input type="text" name="name" id="" placeholder="Name" required
+                            class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 mt-8 mb-7 md:mt-0">
+                        <input type="email" name="email" id="" placeholder="Email" required
+                            class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2">
+                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                        <input type="hidden" name="subject" value="New Submission from Portfolio Website">
+                        <input type="checkbox" name="botcheck" id="" style="display: none;">
+                        <input type="hidden" name="from_name" value="Personal Portfolio">
+
+                    </div>
+
+                    <textarea name="message" placeholder="Message" cols="10" rows="8" required
+                        class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 mx-5 md:mx-0 h-fit p-2"></textarea>
+                    <button type="submit"
+                        class="p-2 sendBtn bg-black text-white text-center text-xl font-semibold rounded-3xl lg:hidden w-[75vw] max-w-80 md:max-w-72 mx-7 md:mx-4 hover:scale-110 active:scale-100 mb-4">Send</button>
+                    <button type="submit"
+                        class="btn sendBtn hidden lg:block p-2 text-xl rounded-3xl font-semibold w-[25rem] max-w-[25rem] max-w-80 mx-7 mb-8 mt-8"
+                        id="sendBtn">Send</button>
+                </form>
+
             </div>
         </div>
     </section>

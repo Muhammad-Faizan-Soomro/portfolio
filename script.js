@@ -249,3 +249,53 @@ mm.add("(min-width: 1024px)", () => {
     });
   }
 });
+
+const form = document.getElementById("form");
+const result = document.getElementsByClassName("sendBtn");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  for (let i = 0; i < result.length; i++) {
+    result[i].innerHTML = "Please wait...";
+  }
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: json,
+  })
+    .then(async (response) => {
+      let json = await response.json();
+      if (response.status == 200) {
+        for (let i = 0; i < result.length; i++) {
+          result[i].innerHTML = json.message;
+        }
+      } else {
+        console.log(response);
+        for (let i = 0; i < result.length; i++) {
+          result[i].innerHTML = json.message;
+        }
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      for (let i = 0; i < result.length; i++) {
+        result[i].innerHTML = "Something Went Wrong!";
+      }
+    })
+    .then(function () {
+      form.reset();
+      setTimeout(() => {
+        for (let i = 0; i < result.length; i++) {
+          result[i].innerHTML = "Send";
+        }
+      }, 3000);
+    });
+});
