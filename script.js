@@ -22,23 +22,11 @@ navbarButton.addEventListener("click", openNavber);
 navbarCloseBtn.addEventListener("click", closeNavber);
 
 mm.add("(min-width: 1024px)", () => {
-  // gsap.from("#image", {
-  //   opacity: 0,
-  //   rotate: 360,
-  //   filter: "grayscale(100%)",
-  //   duration: 1,
-  //   delay: 1,
-  //   scale: 0,
-  // });
 
   gsap.from("#imageDiv", {
     opacity: 0,
     delay: 1,
   });
-
-  // return () => { // optional
-  //   // custom cleanup code here (runs when it STOPS matching)
-  // };
 
   gsap.from("#main-heading", {
     opacity: 0,
