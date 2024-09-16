@@ -22,7 +22,6 @@ navbarButton.addEventListener("click", openNavber);
 navbarCloseBtn.addEventListener("click", closeNavber);
 
 mm.add("(min-width: 1024px)", () => {
-
   gsap.from("#imageDiv", {
     opacity: 0,
     delay: 1,
