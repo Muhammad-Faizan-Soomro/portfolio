@@ -286,3 +286,22 @@ form.addEventListener("submit", function (e) {
       }, 3000);
     });
 });
+
+const cards = document.querySelectorAll(".card");
+
+mm.add("(max-width: 767px)", () => {
+  cards.forEach((card, index) => {
+    if (index < cards.length - 1) {
+      gsap.to(card, {
+        scale: 0.7,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 20%",
+          end: "bottom 20%",
+          scrub: true,
+        },
+      });
+    }
+  });
+});
