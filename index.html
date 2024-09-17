@@ -306,6 +306,54 @@
 </head>
 
 <body class="h-fit overflow-x-hidden dark:bg-[#121212]">
+    <nav id="navbar"
+        class="bg-[rgba(0,0,0,0.7)] h-20 w-[50%] fixed left-[25%] rounded-full top-5 lg:flex items-center justify-around backdrop-blur z-40 hidden dark:bg-[#575757]">
+        <a href="#home"
+            class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
+        <a href="#about"
+            class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">About</a>
+        <a href="#work"
+            class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Work</a>
+        <a href="#contact"
+            class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
+    </nav>
+    <nav id="mobile-nav"
+        class="lg:hidden w-screen h-screen bg-[rgba(0,0,0,0.8)] backdrop-blur flex flex-col absolute hidden z-[2]">
+        <div class="flex justify-between ml-6 mr-6 mt-8 md:mr-14 md:ml-14 md:mt-12">
+
+            <button class="theme-toggle">
+                <i id="theme-toggle-dark-icon"
+                    class="text-white ri-moon-fill text-3xl cursor-pointer hover:scale-110 active:scale-95 h-fit text-white translate-y-1 hidden"></i>
+                <i id="theme-toggle-light-icon"
+                    class="ri-sun-line text-3xl cursor-pointer hover:scale-110 active:scale-95 h-fit text-white translate-y-1 hidden text-[#F0F0F0]"></i>
+            </button>
+
+            <button id="close-nav"
+                class="text-white text-4xl cursor-pointer hover:scale-110 active:scale-95 dark:text-[#F0F0F0]"><i
+                    class="ri-close-circle-fill"></i></button>
+        </div>
+        <div class="flex translate-y-28 justify-center gap-x-3 ">
+            <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
+                class="text-white dark:text-[#F0F0F0] h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                    class="ri-github-fill"></i></a><span class="font-bold text-white">|</span>
+            <a href="https://www.linkedin.com/in/faizansoomro/" target="_blank"
+                class="text-white dark:text-[#F0F0F0] h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                    class="ri-linkedin-box-fill"></i></a><span class="font-bold text-white">|</span>
+            <a href="mailto:mfaizansoomro00@gmail.com" target="_blank"
+                class="text-white dark:text-[#F0F0F0] h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
+                    class="ri-mail-fill "></i></a>
+        </div>
+        <div class="flex flex-col gap-y-7 translate-y-48 ml-16 sm:ml-28 md:ml-52">
+            <a href="#home" onclick="closeNavber()"
+                class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
+            <a href="#about" onclick="closeNavber()"
+                class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">About</a>
+            <a href="#work" onclick="closeNavber()"
+                class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Work</a>
+            <a href="#contact" onclick="closeNavber()"
+                class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
+        </div>
+    </nav>
     <section id="home" class="w-screen h-fit">
         <div class="flex justify-between">
             <h1 id="main-heading"
@@ -314,54 +362,8 @@
             <button id="nav-button"
                 class="font-extrabold text-2xl mt-[1.625rem] mr-6 sm:mr-10 lg:hidden dark:text-[#F0F0F0]"><i
                     class="ri-menu-line"></i></button>
-            <nav id="mobile-nav"
-                class="lg:hidden w-screen h-screen bg-[rgba(0,0,0,0.8)] backdrop-blur flex flex-col absolute hidden z-[2]">
-                <div class="flex justify-between ml-6 mr-6 mt-8 md:mr-14 md:ml-14 md:mt-12">
 
-                    <button class="theme-toggle">
-                        <i id="theme-toggle-dark-icon"
-                            class="text-white ri-moon-fill text-3xl cursor-pointer hover:scale-110 active:scale-95 h-fit text-white translate-y-1 hidden"></i>
-                        <i id="theme-toggle-light-icon"
-                            class="ri-sun-line text-3xl cursor-pointer hover:scale-110 active:scale-95 h-fit text-white translate-y-1 hidden text-[#F0F0F0]"></i>
-                    </button>
 
-                    <button id="close-nav"
-                        class="text-white text-4xl cursor-pointer hover:scale-110 active:scale-95 dark:text-[#F0F0F0]"><i
-                            class="ri-close-circle-fill"></i></button>
-                </div>
-                <div class="flex translate-y-28 justify-center gap-x-3 ">
-                    <a href="https://github.com/Muhammad-Faizan-Soomro" target="_blank"
-                        class="text-white dark:text-[#F0F0F0] h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
-                            class="ri-github-fill"></i></a><span class="font-bold text-white">|</span>
-                    <a href="https://www.linkedin.com/in/faizansoomro/" target="_blank"
-                        class="text-white dark:text-[#F0F0F0] h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
-                            class="ri-linkedin-box-fill"></i></a><span class="font-bold text-white">|</span>
-                    <a href="mailto:mfaizansoomro00@gmail.com" target="_blank"
-                        class="text-white dark:text-[#F0F0F0] h-fit text-3xl cursor-pointer hover:scale-110 active:scale-95 hover:underline hover:underline-offset-2 -translate-y-1"><i
-                            class="ri-mail-fill "></i></a>
-                </div>
-                <div class="flex flex-col gap-y-7 translate-y-48 ml-16 sm:ml-28 md:ml-52">
-                    <a href="#home" onclick="closeNavber()"
-                        class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
-                    <a href="#about" onclick="closeNavber()"
-                        class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">About</a>
-                    <a href="#work" onclick="closeNavber()"
-                        class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Work</a>
-                    <a href="#contact" onclick="closeNavber()"
-                        class="text-white dark:text-[#F0F0F0] text-2xl w-fit font-medium cursor-pointer hover:scale-110 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
-                </div>
-            </nav>
-            <nav id="navbar"
-                class="bg-[rgba(0,0,0,0.7)] h-20 w-[50%] fixed left-[25%] rounded-full top-5 lg:flex items-center justify-around backdrop-blur z-40 hidden dark:bg-[#575757]">
-                <a href="#home"
-                    class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Home</a>
-                <a href="#about"
-                    class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">About</a>
-                <a href="#work"
-                    class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Work</a>
-                <a href="#contact"
-                    class="text-black dark:bg-[#F0F0F0] bg-white py-2 px-7 rounded-full text-md font-medium cursor-pointer hover:scale-105 active:scale-95 hover:decoration-2 hover:underline hover:underline-offset-2">Contact</a>
-            </nav>
             <div class="mt-11 lg:flex gap-5 mr-10 hidden dark:text-[#F0F0F0]" id="socials">
                 <button id="" class="-translate-y-1 theme-toggle">
                     <i id="theme-toggle-dark-icon"
@@ -483,7 +485,7 @@
         </div>
         <div id="main-skills">
             <h2
-                class="text-black text-4xl mt-20 lg:mt-10 font-bold underline underline-offset-2 text-center dark:text-[#959595]">
+                class="text-black text-4xl mt-10 lg:mt-10 font-bold underline underline-offset-2 text-center dark:text-[#959595]">
                 MY SKILLS</h2>
             <div id="skills"
                 class="flex h-[200px] w-screen gap-10 mt-10 rounded-box hidden lg:flex mx-20 dark:text-[#F0F0F0]">

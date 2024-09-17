@@ -81,7 +81,7 @@ mm.add("(min-width: 1024px)", () => {
       scroller: "body",
       start: "top 0%",
       end: "top -30%",
-      scrub: 5,
+      scrub: 2,
     },
   });
 
@@ -222,6 +222,42 @@ mm.add("(min-width: 1024px)", () => {
     },
   });
 
+  gsap.to("#about", {
+    scale: 0.7,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#about",
+      start: "bottom 40%",
+      end: "bottom 20%",
+      scrub: true,
+    },
+  });
+
+  gsap.to("#work", {
+    scale: 0.7,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#work",
+      start: "bottom 40%",
+      end: "bottom 20%",
+      scrub: true,
+    },
+  });
+
+  gsap.to("#home", {
+    scale: 0.7,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#home",
+      start: "bottom 40%",
+      end: "bottom 20%",
+      scrub: true,
+    },
+  });
+
   for (let i = 0; i < tag.length; i++) {
     tag[i].addEventListener("mouseenter", () => {
       gsap.to(tag[i], { scale: 1.2, duration: 0.2 });
@@ -303,5 +339,64 @@ mm.add("(max-width: 767px)", () => {
         },
       });
     }
+  });
+
+  gsap.from("#about", {
+    scale: 0.3,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 82%",
+      end: "top 62%",
+      scrub: true,
+    },
+  });
+
+  gsap.to("#main-skills", {
+    scale: 0.7,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#main-skills",
+      start: "bottom 10%",
+      end: "bottom 5%",
+      scrub: true,
+    },
+  });
+
+  gsap.from("#work", {
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#work",
+      start: "top 50%",
+      end: "top 40%",
+      scrub: true,
+    },
+  });
+
+  gsap.from("#contact", {
+    scale: 0.3,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 95%",
+      end: "top 85%",
+      scrub: true,
+    },
+  });
+
+  gsap.to("#home", {
+    scale: 0.7,
+    opacity: 0,
+    ease: "slow(0.7,0.7,false)",
+    scrollTrigger: {
+      trigger: "#home",
+      start: "bottom 40%",
+      end: "bottom 20%",
+      scrub: true,
+    },
   });
 });
