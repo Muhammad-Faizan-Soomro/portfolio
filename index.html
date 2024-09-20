@@ -9,14 +9,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class', /* 'class' or 'media', we use 'class' to enable dark mode manually */
+            darkMode: 'selector',
         }
     </script>
     <script>
-        /**
-         * Loads the theme stored
-        */
-        if (localStorage.getItem('color-theme') === 'dark') {
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark')
@@ -305,7 +302,7 @@
     </style>
 </head>
 
-<body class="h-fit overflow-x-hidden dark:bg-[#121212]">
+<body class="h-fit overflow-x-hidden dark:bg-[#121212] bg-white">
     <nav id="navbar"
         class="bg-[rgba(0,0,0,0.7)] h-20 w-[50%] fixed left-[25%] rounded-full top-5 lg:flex items-center justify-around backdrop-blur z-40 hidden dark:bg-[#575757]">
         <a href="#home"
@@ -362,11 +359,11 @@
                 class="text-black lg:text-4xl text-3xl lg:mt-10 mt-6 lg:ml-10 ml-6 font-bold dark:text-[#F0F0F0]">
                 PORTFOLIO</h1>
             <button id="nav-button"
-                class="font-extrabold text-2xl mt-[1.625rem] mr-6 sm:mr-10 lg:hidden dark:text-[#F0F0F0]"><i
+                class="text-black font-extrabold text-2xl mt-[1.625rem] mr-6 sm:mr-10 lg:hidden dark:text-[#F0F0F0]"><i
                     class="ri-menu-line"></i></button>
 
 
-            <div class="mt-11 lg:flex gap-5 mr-10 hidden dark:text-[#F0F0F0]" id="socials">
+            <div class=" text-black mt-11 lg:flex gap-5 mr-10 hidden dark:text-[#F0F0F0]" id="socials">
                 <button id="" class="-translate-y-1 theme-toggle">
                     <i id="theme-toggle-dark-icon"
                         class="ri-moon-fill text-2xl  cursor-pointer hover:scale-110 active:scale-95 h-fit hidden text-black"></i>
@@ -387,7 +384,7 @@
             </div>
         </div>
         <div
-            class="md:flex md:w-[90%] md:h-[70%] w-[100%] h-fit md:mt-8  md:ml-14 lg:ml-20 lg:mt-20 md:gap-4 mt-10 dark:text-[#F0F0F0]">
+            class="text-black md:flex md:w-[90%] md:h-[70%] w-[100%] h-fit md:mt-8  md:ml-14 lg:ml-20 lg:mt-20 md:gap-4 mt-10 dark:text-[#F0F0F0]">
             <div id="imageDiv"
                 class="md:h-[100%] md:w-[45vw] md:max-w-96 w-[85%] relative z-[-1] lg:z-0 left-[7.5%] md:left-0 lg:w-[50%] lg:max-w-[50%] dark:z-0">
                 <img id="image" class="border-4 border-black rounded-xl shadow-gray-500 dark:border-[#656565]"
@@ -425,7 +422,7 @@
             </div>
 
         </div>
-        <div class="hidden lg:hidden md:flex flex-col items-end mt-7 gap-y-5 dark:text-[#F0F0F0]">
+        <div class="text-black hidden lg:hidden md:flex flex-col items-end mt-7 gap-y-5 dark:text-[#F0F0F0]">
             <p class="text-lg text-justify leading-8 mx-12">a passionate web developer with a
                 knack for creating dynamic
                 and
@@ -446,7 +443,7 @@
         <div class="pt-28 hidden lg:block">
             <h2 class="text-black text-4xl font-bold underline underline-offset-2 text-center dark:text-[#959595]">ABOUT
                 ME</h2>
-            <p class="text-lg text-justify leading-9 px-20 pt-5 dark:text-[#F0F0F0]" id="about-me">
+            <p class="text-black text-lg text-justify leading-9 px-20 pt-5 dark:text-[#F0F0F0]" id="about-me">
                 <span>
                     I'm a versatile web developer with a strong command of frontend and backend technologies. My
                     expertise
@@ -490,7 +487,7 @@
                 class="text-black text-4xl md:mt-10 lg:mt-10 font-bold underline underline-offset-2 text-center dark:text-[#959595]">
                 MY SKILLS</h2>
             <div id="skills"
-                class="flex h-[200px] w-screen gap-10 mt-10 rounded-box hidden lg:flex mx-20 dark:text-[#F0F0F0]">
+                class="text-black flex h-[200px] w-screen gap-10 mt-10 rounded-box hidden lg:flex mx-20 dark:text-[#F0F0F0]">
                 <div class="flex flex-col gap-y-3 carousel-item">
                     <img class="object-contain h-[150px] w-[200px]" src="./assets/react.webp" alt="reactjs icon" />
                     <span class="text-center text-lg font-medium">ReactJS</span>
@@ -552,7 +549,7 @@
                     <span class="text-center text-lg font-medium">HTML</span>
                 </div>
             </div>
-            <div class="mt-6 lg:hidden flex flex-col gap-y-2 dark:text-[#F0F0F0]">
+            <div class="text-black mt-6 lg:hidden flex flex-col gap-y-2 dark:text-[#F0F0F0]">
                 <h1 class="text-2xl font-semibold ml-6 mb-6 md:ml-24">FRONTEND:</h1>
                 <div class="flex gap-5 justify-evenly">
                     <div class="flex flex-col gap-y-6">
@@ -757,7 +754,8 @@
         <h2
             class="text-black text-4xl lg:mt-32 mt-24 font-bold underline underline-offset-2 text-center dark:text-[#959595]">
             CONTACT ME</h2>
-        <div class="flex flex-col md:flex-row md:mt-20 mt-10 lg:mx-20 md:mx-8 md:justify-between dark:text-[#F0F0F0]">
+        <div
+            class="text-black flex flex-col md:flex-row md:mt-20 mt-10 lg:mx-20 md:mx-8 md:justify-between dark:text-[#F0F0F0]">
             <div class="lg:w-[50%] md:w-[40%] md:ml-5 lg:ml-16 lg:mt-16" id="left-contact">
                 <h2 class="lg:text-4xl text-3xl font-bold text-center md:text-left">Let's Work Together!</h2>
                 <p class="leading-7 pt-6 text-lg hidden lg:block">Feel free to reach out if
@@ -789,9 +787,9 @@
                     <input type="hidden" name="access_key" value="e2cb9461-211f-4f45-b7bf-aed8b43682a3">
                     <div class="flex flex-col items-center md:items-start">
                         <input type="text" name="name" id="" placeholder="Name" required
-                            class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 mt-8 mb-7 md:mt-0 dark:bg-[#7d7d7d] dark:outline-[#F0F0F0] dark:placeholder:text-[#F0F0F0]">
+                            class="bg-white rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 mt-8 mb-7 md:mt-0 dark:bg-[#7d7d7d] dark:outline-[#F0F0F0] dark:placeholder:text-[#F0F0F0]">
                         <input type="email" name="email" id="" placeholder="Email" required
-                            class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 dark:bg-[#7d7d7d] dark:outline-[#F0F0F0] dark:placeholder:text-[#F0F0F0]">
+                            class="bg-white rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 md:min-w-0 md:mx-0 h-fit p-2 dark:bg-[#7d7d7d] dark:outline-[#F0F0F0] dark:placeholder:text-[#F0F0F0]">
                         <input type="hidden" name="redirect" value="https://web3forms.com/success">
                         <input type="hidden" name="subject" value="New Submission from Portfolio Website">
                         <input type="checkbox" name="botcheck" id="" style="display: none;">
@@ -800,7 +798,7 @@
                     </div>
 
                     <textarea name="message" placeholder="Message" cols="10" rows="8" required
-                        class="rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 mx-5 md:mx-0 h-fit p-2 dark:bg-[#7d7d7d] dark:outline-[#F0F0F0] dark:placeholder:text-[#F0F0F0]"></textarea>
+                        class="bg-white rounded-md outline-2 outline-black outline lg:w-[30rem] lg:max-w-[30rem] w-[80vw] max-w-96 md:max-w-80 mx-5 md:mx-0 h-fit p-2 dark:bg-[#7d7d7d] dark:outline-[#F0F0F0] dark:placeholder:text-[#F0F0F0]"></textarea>
                     <button type="submit"
                         class="p-2 sendBtn bg-black text-white text-center text-xl font-semibold rounded-3xl lg:hidden w-[75vw] max-w-80 md:max-w-72 mx-7 md:mx-4 hover:scale-110 active:scale-100 mb-4 dark:bg-[#3f3f3f]">Send</button>
                     <button type="submit"
@@ -818,7 +816,10 @@
 
         // Change the icons inside the button based on previous settings
         if (
-            localStorage.getItem("color-theme") === "dark") {
+            localStorage.getItem("color-theme") === "dark" ||
+            (!("color-theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
             for (let i = 0; i < themeToggleLightIcon.length; i++) {
                 themeToggleLightIcon[i].classList.remove("hidden");
             }
@@ -832,7 +833,6 @@
 
         for (let i = 0; i < themeToggleBtn.length; i++) {
             themeToggleBtn[i].addEventListener("click", function () {
-                // Toggle icons inside button
                 for (let i = 0; i < themeToggleLightIcon.length; i++) {
                     themeToggleLightIcon[i].classList.toggle("hidden");
                 }
